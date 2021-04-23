@@ -9,7 +9,7 @@
         i) open 'CMD'\
         ii) type 'cd C:\Users\youraccount\Desktop\EZDC-main'\
         iii) type 'python -m pip install --upgrade pip'\
-        iv) type 'pip install -r requirements.txt'
+        iv) type 'pip install -r requirements.txt'\
         v) if iv) have some error, you may try 'pip install lxml pandas openpyxl beautifulsoup requests'
         
 4) type 'python excelmodifier.py'
