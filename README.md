@@ -11,7 +11,8 @@
         iii) type 'pip install -r requirements.txt'
         
 4) type 'python excelmodifier.py'
-  
+5) if you want to automate the task and run it daily, you may visit: https://www.youtube.com/watch?v=CAH0B1ErriI
+
 And you will have the updated EZDC excel file.
 
 THINGs to modify:
