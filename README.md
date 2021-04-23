@@ -7,7 +7,7 @@
 3) open your terminal, go to the directory you download, install the required package
   - eg in window: 
         i) open 'CMD'\
-        ii) type 'cd C:\Users\youraccount\Desktop\EZDC'\
+        ii) type 'cd C:\Users\youraccount\Desktop\EZDC-main'\
         iii) type 'pip install -r requirements.txt'
         
 4) type 'python excelmodifier.py'
