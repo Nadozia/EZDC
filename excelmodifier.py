@@ -6,11 +6,13 @@ import datetime
 import os
 
 class ExcelProcessor:
+    #you may name the product sheet name here
     def __init__(self, filepath, product_sheet_name='Sheet1'):
         self.filename = filepath
         try:
             self.wb = openpyxl.load_workbook(filename=filepath)
         except:
+            # this is the default filename
             self.wb = openpyxl.load_workbook(filename='./EZDC.xlsx')
         self.product_sheet_name = product_sheet_name
         self.sheet_names = self.wb.sheetnames
@@ -22,7 +24,9 @@ class ExcelProcessor:
         ws = self.wb[self.product_sheet_name]
         products = []
         for r in range(ws.max_row):
+            #you may name the column number here
             products.append(ws.cell(row=r+1, column=4).value)
+        # this line start to read the ASIN from row2, so if you want to start from row 3 or more, please do the addition (eg: start from row2 -> start from row3, [1:]->[2:])
         return products[1:]
 
     def updateWorkSheets(self):
@@ -40,7 +44,7 @@ class ExcelProcessor:
                 print(f'Append Successful on {ASIN}.')
                 print((Date, ASIN, REVIEW, REVIEW_TEXT, rankings))
             except:
-                print(f'No page for {ASIN}.')
+                print(f'No page for {product_asin}.')
                 product_ws.append((Date, product_asin, 'NAN', 'NAN', 'NAN', 'NAN', 'NAN', 'NAN'))
         
         self.wb.save(self.filename)
@@ -88,6 +92,7 @@ class ExcelProcessor:
         return(ASIN, REVIEW, REVIEW_TEXT, rankings[1:])
 
 def Main():
+    # you may make change to the filename here
     filename = './EZDC.xlsx'
     mtime = os.path.getmtime(filename)
     EP = ExcelProcessor(filepath=filename)
