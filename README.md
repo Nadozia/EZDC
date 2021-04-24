@@ -8,8 +8,9 @@
   - eg in window: 
         i) open 'CMD'\
         ii) type 'cd C:\Users\youraccount\Desktop\EZDC-main'\
-        iii) python -m pip install --upgrade pip
-        iv) type 'pip install lxml pandas openpyxl beautifulsoup requests'
+        iii) type 'python -m pip install --upgrade pip'\
+        iv) type 'pip install -r requirements.txt'\
+        v) if iv) have some error, you may try 'pip install lxml pandas openpyxl beautifulsoup requests'
         
 4) type 'python excelmodifier.py'
 5) if you want to automate the task and run it daily, you may visit: https://www.youtube.com/watch?v=n2Cr_YRQk7o
