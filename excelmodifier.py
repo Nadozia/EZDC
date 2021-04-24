@@ -8,12 +8,14 @@ import os
 class ExcelProcessor:
     #you may name the product sheet name here
     def __init__(self, filepath, product_sheet_name='Sheet1'):
+        self.path = os.path.dirname(os.path.abspath(__file__))
         self.filename = filepath
+        self.file = os.path.join(self.path, self.filename)
         try:
             self.wb = openpyxl.load_workbook(filename=filepath)
         except:
             # this is the default filename
-            self.wb = openpyxl.load_workbook(filename='./EZDC.xlsx')
+            self.wb = openpyxl.load_workbook(filename='EZDC.xlsx')
         self.product_sheet_name = product_sheet_name
         self.sheet_names = self.wb.sheetnames
         self.product_list = self.getProducts()
@@ -93,7 +95,7 @@ class ExcelProcessor:
 
 def Main():
     # you may make change to the filename here
-    filename = './EZDC.xlsx'
+    filename = 'EZDC.xlsx'
     mtime = os.path.getmtime(filename)
     EP = ExcelProcessor(filepath=filename)
     if datetime.datetime.today().date()!=datetime.datetime.utcfromtimestamp(mtime).date():
