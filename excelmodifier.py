@@ -30,7 +30,7 @@ class ExcelProcessor:
         for product in self.product_list:
             product_asin = str(product)
             if product_asin not in self.sheet_names:
-                if len(product_asin)>0:
+                if bool(product)>0:
                     print(f'New sheet created for {product_asin}!')
                     product_ws = self.wb.create_sheet(title=product_asin)
                     product_ws.append(('Date', 'ASIN', 'STARS', 'NUM_RATING', 'RANKING1','RANKING1_CAT','RANKING2', 'RANKING2_CAT'))
@@ -53,6 +53,7 @@ class ExcelProcessor:
             except:
                 print(f'No page found for {product_asin}.')
                 product_ws.append((Date, product_asin, 'NAN', 'NAN', 'NAN', 'NAN', 'NAN', 'NAN'))
+                print("----------------------------------------------------------")
         
         
         self.wb.save(self.file)
